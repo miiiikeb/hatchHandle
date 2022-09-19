@@ -53,6 +53,10 @@ module spiralNeg(){
 	qCube(dims=[big,big,big], os = [0,0,11.2], rot = [0,0,0]);
 	qCube(dims=[big,big,big], os = [0,spiralOS[1] - big/2,-lil], rot = [0,0,0]);
 	qCyl(rad=pivotCoreR,hei=pivotCoreH,res=res,os=[0,0,-lil],rot=[0,0,0]);
+	difference(){
+		qCyl(rad=big,hei=big/2,res=res,os=[0,0,-0.1],rot=[0,0,0]);
+		qCyl(rad=spiralCutR,hei=big/2,res=res,os=[0,0,-0.2],rot=[0,0,0]);
+	}
 
 }
 
@@ -61,6 +65,10 @@ module leadingEdge(){
 		qCyl(rad=leadEdgeR,hei=leadEdgeH,res=res,os=leadEdgeOS,rot=leadEdgeRot);
 		qCube(dims=[big,big,big], os = [0,0,-big], rot = [0,0,0]);
 		qCube(dims=[big,big,big], os = [big/2,0,-big/2], rot = [0,0,0]);
+		difference(){
+			qCyl(rad=big,hei=big/2,res=res,os=[0,0,-0.1],rot=[0,0,0]);
+			qCyl(rad=spiralCutR,hei=big/2,res=res,os=[0,0,-0.2],rot=[0,0,0]);
+		}	
 		
 
 		}
