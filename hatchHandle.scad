@@ -79,6 +79,8 @@ module spiralMake(){
 		spiralPos();
 		spiralNeg();
 	}
+	leadingEdge();
+
 } 
 
 module handle(){
@@ -90,6 +92,10 @@ module handle(){
 		qCube(dims=handle2Dims, os = handle2OS, rot = [0,0,0]);
 		qCube(dims=handle3Dims, os = handle3OS, rot = [0,0,0]);
 	}
+	hull(){
+		qCube(dims=handle4Dims, os = handle4OS, rot = [0,0,0]);
+		qCube(dims=handle5Dims, os = handle5OS, rot = [0,0,0]);
+	}
 }
 	
 module makeEverything(){		
@@ -97,7 +103,6 @@ module makeEverything(){
 	thingMake();
 	spiralMake();
 
-	leadingEdge();
 	difference(){
 		minkowski(){
 			rotate([0,0,45]) intersection(){
@@ -113,5 +118,7 @@ module makeEverything(){
 	}
 }
 
-mirror([1,0,0]) makeEverything();
+//projection(cut = false) mirror([1,0,0]) makeEverything();
 //makeEverything();
+
+ mirror([1,0,0]) spiralMake();
